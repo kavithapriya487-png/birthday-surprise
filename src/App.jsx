@@ -35,22 +35,39 @@ function App() {
   }, [loading, screen]);
 
   return (
-    <div className="app">
+    <div className={`app screen-${screen}`}>
+
+      {/* BACKGROUND EFFECTS */}
+      <div className="background-glow glow-one"></div>
+      <div className="background-glow glow-two"></div>
+
+      <div className="particles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
       {/* SCREEN 1 */}
       {screen === 0 && (
         <div className="screen fade-in">
           <div className="card intro-card">
 
-            <div className="symbol">♡</div>
+            <div className="glowing-symbol">
+              <span className="symbol">♡</span>
+            </div>
 
             <p className="label">BIRTHDAY PROTOCOL #01</p>
 
-            <h1>
+            <h1 className="intro-title">
               SYSTEM
               <br />
-              LOCKED
+              <span>LOCKED</span>
             </h1>
+
+            <div className="title-line"></div>
 
             <p className="subtext">
               Hello, Birthday Boy (MERSAL_BOY😀).
@@ -66,17 +83,26 @@ function App() {
               ENTER
             </button>
 
+            <div className="scroll-hint">
+              <span>SCROLL THROUGH THE SURPRISE</span>
+            </div>
+
           </div>
         </div>
       )}
 
-
       {/* SCREEN 2 */}
       {screen === 1 && (
         <div className="screen fade-in">
-          <div className="card">
+          <div className="card question-card">
 
-            <div className="symbol">♡</div>
+            <div className="question-orbit">
+              <span>♡</span>
+              <span>✦</span>
+              <span>♡</span>
+            </div>
+
+            <div className="symbol small-symbol">♡</div>
 
             <p className="label">A SMALL QUESTION</p>
 
@@ -109,13 +135,14 @@ function App() {
         </div>
       )}
 
-
       {/* SCREEN 3 - LOADING */}
       {screen === 2 && (
         <div className="screen fade-in">
           <div className="card loading-card">
 
-            <div className="symbol">♡</div>
+            <div className="loading-orb">
+              <div className="orb-heart">♡</div>
+            </div>
 
             <p className="label">ACCESS GRANTED</p>
 
@@ -143,29 +170,36 @@ function App() {
         </div>
       )}
 
-
       {/* SCREEN 4 - PRIVATE MESSAGE */}
       {screen === 3 && (
         <div className="screen fade-in">
           <div className="card message-card">
 
+            <div className="spotlight"></div>
+
+            <div className="symbol message-symbol">♡</div>
+
             <p className="label">PRIVATE MESSAGE</p>
 
-            <h1>
+            <h1 className="reveal-title">
               FOR MAMA
             </h1>
+
+            <div className="title-line"></div>
 
             <p className="main-text">
               Then take your time.
             </p>
 
             <p className="description">
-              "How I feel for you" nu na ippavariyum words la express pannale.I am bad at expressing love.Onnu nenaipe,ana innonu pannuve
+              "How I feel for you" nu na ippavariyum words la express pannale.
+              I am bad at expressing love. Onnu nenaipe, ana innonu pannuve.
               <br />
-              Enaku proper aa express panna theriyale.Neenge eppadi receive pannuveenge nu theriyale.So ippo konjam dhaa express pandre.
-              unga kitte irundu receiving skills nalla irundhaa aparama moththam express pandren😀.
               <br />
-             
+              Enaku proper aa express panna theriyale. Neenge eppadi receive
+              pannuveenge nu theriyale. So ippo konjam dhaa express pandre.
+              unga kitte irundu receiving skills nalla irundhaa aparama moththam
+              express pandren😀.
             </p>
 
             <button onClick={() => setScreen(4)}>
@@ -176,11 +210,12 @@ function App() {
         </div>
       )}
 
-
       {/* SCREEN 5 - THINGS I WANT YOU TO KNOW */}
       {screen === 4 && (
         <div className="screen fade-in scroll-screen">
           <div className="content-card">
+
+            <div className="section-glow"></div>
 
             <p className="label">
               THINGS I WANT YOU TO KNOW
@@ -188,9 +223,11 @@ function App() {
 
             <h1>A FEW WORDS</h1>
 
+            <div className="title-line centered-line"></div>
+
             <div className="thoughts">
 
-              <div className="thought">
+              <div className="thought thought-one">
                 <span>01</span>
 
                 <p>
@@ -199,8 +236,7 @@ function App() {
                 </p>
               </div>
 
-
-              <div className="thought">
+              <div className="thought thought-two">
                 <span>02</span>
 
                 <p>
@@ -209,8 +245,7 @@ function App() {
                 </p>
               </div>
 
-
-              <div className="thought">
+              <div className="thought thought-three">
                 <span>03</span>
 
                 <p>
@@ -220,9 +255,6 @@ function App() {
                   what, don't ever feel like you're alone.
                 </p>
               </div>
-
-
-             
 
             </div>
 
@@ -234,19 +266,28 @@ function App() {
         </div>
       )}
 
-
       {/* SCREEN 6 - BIRTHDAY LETTER */}
       {screen === 5 && (
         <div className="screen fade-in scroll-screen">
           <div className="letter-card">
 
+            <div className="letter-glow"></div>
+
+            <div className="floating-mini-hearts">
+              <span>♡</span>
+              <span>♡</span>
+              <span>♡</span>
+            </div>
+
             <p className="label">BIRTHDAY MESSAGE</p>
 
-            <h1>
+            <h1 className="birthday-title">
               HAPPY BIRTHDAY,
               <br />
-              MAMA❤️.
+              MAMA<span>❤️</span>.
             </h1>
+
+            <div className="title-line centered-line"></div>
 
             <div className="letter">
 
@@ -260,19 +301,27 @@ function App() {
                 coding — and turned it into a small surprise
                 for you. This website isn't really about the code.
                 The code is just the way I chose to put
-                these words together.What matters is that I wanted to make something
-                that took time, thought and effort.
+                these words together. What matters is that I wanted
+                to make something that took time, thought and effort.
               </p>
 
-              
-
-             
-
-              <p>enaku unga date Of Birth chinna vayasule irunde theriyum.Theriyadu nu nadichadu ku sorry mama.
-                Therinje sollame irundaku thimiru nu nenaikadinge..adhuku laa neraiya reason iruku.Ana naa rombaa feel panne sollame irundaduku.
-                adhukaga dhaa edo ennala mudinjaa indha chinna website..Normal msg lee idhu naa panni irundrikalam ana neenge enne solluvinge..."naanum ipdi tha panne... ippo devil ayiten nu"
-                en ego hurt aagum😂..adhu nala dhaa coding le message pandren...ungalku puriyum nu website aa change panne..Ippo sollunge neenge coding le laa msg panningalaa?🧐
-                
+              <p>
+                enaku unga date Of Birth chinna vayasule irunde theriyum.
+                Theriyadu nu nadichadu ku sorry mama.
+                Therinje sollame irundaku thimiru nu nenaikadinge..
+                adhuku laa neraiya reason iruku. Ana naa rombaa feel panne
+                sollame irundaduku.
+                <br />
+                <br />
+                adhukaga dhaa edo ennala mudinjaa indha chinna website..
+                Normal msg lee idhu naa panni irundrikalam ana neenge enne
+                solluvinge..."naanum ipdi tha panne... ippo devil ayiten nu"
+                en ego hurt aagum😂.
+                <br />
+                <br />
+                adhu nala dhaa coding le message pandren...
+                ungalku puriyum nu website aa change panne..
+                Ippo sollunge neenge coding le laa msg panningalaa?🧐
               </p>
 
               <p>
@@ -295,11 +344,14 @@ function App() {
         </div>
       )}
 
-
       {/* SCREEN 7 - FINAL MESSAGE */}
       {screen === 6 && (
         <div className="screen fade-in">
           <div className="card final-card">
+
+            <div className="final-background-heart heart-one">♡</div>
+            <div className="final-background-heart heart-two">♡</div>
+            <div className="final-background-heart heart-three">♡</div>
 
             <div className="final-heart">
               ♡
@@ -315,20 +367,23 @@ function App() {
               ONE THING...
             </h1>
 
+            <div className="title-line centered-line"></div>
+
             <p className="main-text">
               Ungalayum love pannuvange(including me)
             </p>
 
             <p className="description">
-              oru pechu varthaile, "enne laa yaar aththe love pannuva" nu sonninge
-              
+              oru pechu varthaile, "enne laa yaar aththe love pannuva"
+              nu sonninge.
               <br />
-              But na unge mela romba paithiyama irunde..sonna romba desperate aa irukareno nu neenge nenaipinge nu ippo variyum sollale ana
-              ungalku theriyum nu nenaikiren.
-              <br/>
-              <br/>
-               
-               ungale rombaa varushama nenaichitu irunden.
+              <br />
+              But na unge mela romba paithiyama irunde..
+              sonna romba desperate aa irukareno nu neenge nenaipinge nu
+              ippo variyum sollale ana ungalku theriyum nu nenaikiren.
+              <br />
+              <br />
+              ungale rombaa varushama nenaichitu irunden.
             </p>
 
             <div className="line"></div>
@@ -347,13 +402,57 @@ function App() {
         </div>
       )}
 
-
       {/* SCREEN 8 - END */}
       {screen === 7 && (
-        <div className="screen fade-in">
-          <div className="card end-card">
+        <div className="screen fade-in finale-screen">
 
-            <div className="symbol">
+          {/* FLOATING HEARTS */}
+          <div className="floating-hearts">
+            <span>♡</span>
+            <span>♡</span>
+            <span>♡</span>
+            <span>♡</span>
+            <span>♡</span>
+            <span>♡</span>
+          </div>
+
+          {/* FLOWERS */}
+          <div className="flowers">
+            <span>🌸</span>
+            <span>🌷</span>
+            <span>🌼</span>
+            <span>🌹</span>
+            <span>🌸</span>
+          </div>
+
+          <div className="card end-card birthday-finale">
+
+            <div className="sparkles">
+              <span>✦</span>
+              <span>✧</span>
+              <span>✦</span>
+              <span>✧</span>
+            </div>
+
+            {/* GIFT */}
+            <div className="gift-container">
+
+              <div className="gift-lid">
+                <div className="gift-ribbon"></div>
+                <div className="gift-bow">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div className="gift-box">
+                <div className="gift-ribbon"></div>
+                <div className="gift-shine"></div>
+              </div>
+
+            </div>
+
+            <div className="symbol finale-symbol">
               ♡
             </div>
 
@@ -364,6 +463,8 @@ function App() {
             <h1>
               COMPLETE.
             </h1>
+
+            <div className="title-line centered-line"></div>
 
             <p className="main-text">
               Made with code.
